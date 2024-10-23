@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+    <!-- contact -->
+    <div class="contact">
+       <div class="container">
+          <div class="row ">
+             <div class="col-md-8 offset-md-2">
+                <div class="titlepage text_align_left">
+                   <h2>Get In Touch</h2>
+                </div>
+                <form method="post" action='.' id="request" class="main_form">
+                    {% csrf_token %}
+
+                   <div class="row">
+                     <div class="col-md-12">
+                         {{ form.name }}
+                     </div>
+                     <div class="col-md-12">
+                         {{ form.number}}
+                     </div>
+                     <div class="col-md-12">
+                         {{ form.email }}
+                     </div>
+                     <div class="col-md-12">
+                         {{ form.content }}
+                     </div>
+                      <div class="col-md-12">
+                         <button class="send_btn">Send Now</button>
+                      </div>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+    <!-- contact -->
+
+
+{% endblock %}
