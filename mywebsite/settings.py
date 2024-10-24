@@ -29,6 +29,9 @@ ALLOWED_HOSTS = []
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+LOGIN_REDIRECT_URL = '/website/'
+LOGOUT_REDIRECT_URL = '/website/'
+
 # Application definition
 
 INSTALLED_APPS = [

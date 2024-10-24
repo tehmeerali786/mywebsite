@@ -74,7 +74,18 @@
                   </div>
                   <div class="col-md-2 d_none">
                      <ul class="email text_align_right">
-                        <li> <a href="Javascript:void(0)"> Login </a></li>
+                       <span class="user">
+                       {% if request.user.is_authenticated %}
+                           Hello {{ request.user.first_name|default:request.user.username }},
+                           <form action="{% url "logout"  %}" method="post">
+                               <button type="submit">Logout</button>
+                               {% csrf_token %}
+                           </form>
+                       {% else %}
+                            <li><a href="{% url "login" %}">Login</a></li>
+                       {% endif %}
+                       </span>
+                        
                         <li> <a href="Javascript:void(0)"> <i class="fa fa-search" style="cursor: pointer;" aria-hidden="true"> </i></a> </li>
                      </ul>
                   </div>
